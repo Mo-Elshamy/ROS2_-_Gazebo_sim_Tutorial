@@ -77,7 +77,7 @@ def generate_launch_description():
     )
     
     
-    #bridge ros topic and gazebo meesages 
+    #ridge ros topic and gazebo meesages 
     bridge = Node(
         package = 'ros_gz_bridge',
         executable = 'parameter_bridge',
@@ -88,13 +88,6 @@ def generate_launch_description():
         output = 'screen',
     )    
 
-    start_gazebo_ros_image_bridge_cmd = Node(
-        package='ros_gz_image',
-        executable='image_bridge',
-        arguments=['/camera/image_raw'],
-        output='screen',
-    )
-    
     # Rviz2
     rviz_node = Node(
         package='rviz2',
@@ -111,7 +104,6 @@ def generate_launch_description():
         robot_state_publisher_node,
         joint_state_publisher_node,
         bridge,
-        start_gazebo_ros_image_bridge_cmd,
         set_env_vars_resources,
         rviz_node,
     ])
